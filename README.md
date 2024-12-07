@@ -1,2 +1,1 @@
-LECTURE SUMMARIZER
-# NEERAJ
+# Lecture-Summarizer
