@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", message=".LangChainDeprecationWarning.")
 
 # Retrieve API keys and configurations from environment variables
-GEMINI_API_KEY = "AIzaSyAYy5fdij0cQJYbh8gDMkdg0ixISvg1VU4"
+GEMINI_API_KEY = "Enter Your API key here"
 
 def generate_summarized_pdf(txt_path, output_pdf_path="/content/summarized_notes_with_titles.pdf"):
     """
