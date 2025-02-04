@@ -1,0 +1,135 @@
+Welcome to this course on Python for Data Science. This is a 4 week course where we are
+going to teach you some very basic programming aspects in Python. And since this is a course
+that is geared towards data science, towards end of the course based on what has been taught
+in the course, we will also show you two different case studies. One is what we call as a function
+approximation case study, another one a classification case study and then tell you how to solve those
+case studies using the programming platform that you have learned. So, in this first introductory
+lecture, I am just going to talk about why are we looking at Python for data science. So,
+to look at that first, we are going to look at what data science is. This is something that you
+would have seen in other videos of courses in NPTEL and other places. Data science is basically the
+science of analyzing raw data and deriving insights from this data. And you could use multiple
+techniques to derive insights, you could use simple statistical techniques to derive insights,
+you could use more complicated and more sophisticated machine learning techniques to derive insights
+and so on. Nonetheless, the key focus of data science is in actually deriving these insights using
+whatever techniques that you want to use. Now, there is lot of excitement about data science and
+this excitement comes because it is been shown that you can get very valuable insights from large
+data and you can get insights about how different variables change together, how one variable affects
+another variable and so on with large data which is not very easy to simply see by very simple
+computation. So, you need to inverse some time and energy into understanding how you could look at
+this data and derive these insights from data. And from utilitarian viewpoint, if you look at
+data science in industries, if you do proper data science, it allows these industries to make better
+decisions. These decisions could be in multiple fields. For example, companies could make better
+purchasing decisions, better hiring decisions, better decisions in terms of how to operate their
+processes and so on. So, when we talk about decisions, the decisions could be across multiple
+verticals in an industry. And data science is not only useful from an industrial perspective,
+it is also useful in natural sciences themselves. So, where you look at lots of data to model your
+system or test your hypotheses or theories about systems and so on. So, when we talk about data
+science, we start by assuming that we have a large amount of data for the problem of interest.
+And we are going to basically look at this data, we are going to inspect the data, we are going to
+clean and curate the data, then we will do some transformation of the data modeling and so on.
+Before we can derive insights that are valuable to the organization or to test a theory and so on.
+Now, coming to a more practical view point of what we do once we have data, I have these four
+bullet points which roughly tell you supposing you were solving a data science problem.
+What are the steps you will do? So, you will start with just having data, someone gives you data.
+And you are trying to derive insights from this data. So, the very first step is really to bring
+this data into your system. So, you have to read the data so that the data comes into this programming
+platform so that you can use this data. Now, data could be in multiple formats. So, you could
+have data in a simple excel sheet or some other format. So, we will teach you how to pull data
+in to your programming platform from multiple data formats. So, that is the first step really if you
+think about how you are going to solve a problem. The steps would be first to simply read the data.
+And then once you read the data many times you have to do some processing with this data.
+You could have data that is not correct. For example, we all know that if you have your mobile
+numbers there are 10 numbers in a mobile number and if there is a column of mobile numbers and then
+say there is a one row where there are just five numbers then you know there is something wrong.
+So, this is a very simple check I am talking about in real data processing this gets much more
+complicated. So, once you bring the data in when you try to process this data you are going to get
+errors such as this. So, how do you remove such errors? How do you clean the data is one activity
+that that usually precedes doing you more useful stuff with the data.
+This is not the only issue that we look at there could be data that is missing. So, for example,
+there is a variable for which you get a value in multiple situations but in some situations the
+value is missing. So, what do you do with this data? Do you throw the record away or you do something
+to fill the data and so on. So, these are all data processing cleaning steps. So, in this course
+we will tell you the tools that are available in Python so that you can do this data processing
+cleaning and so on. Now, what you have done at this point is you have been able to get the data
+into the system. You have been able to process and clean the data and get to a certain data file
+or data structure that is reasonably complete. So, that you think you can work with this data set
+at which point what you will do is you will try to summarize this data and usually summarization
+of this data very simple technique would be very very simple statistical measures that you will
+compute. You could for example, compute a median mode mean of a particular column. So, those are
+simple ideas of summarizing the data you could compute variance and so on. So, we are going to
+teach you how to use this notions of statistical quantities that you can use to summarize the data.
+Once you summarize the data then another activity which is usually taken up is what is called
+visualization right. So, visualization means you look at this data more pictorially to get insights
+about the data before you bring in heavy duty algorithms to bear on this data.
+And this is a creative aspect of data science. The same data could be visualized by multiple people
+in multiple ways and some visualizations are not only eye catching but are also much more
+informative than other types of visualization. So, this notion of plotting this data so that
+some of the attributes or aspects of the data are made apparent is this notion of visualization.
+And there are tools in Python that will teach you in terms of how you visualize this data.
+So, at this point you have taken the data you have cleaned the data got a set of data points
+or data structure that you can work with. You have done some basic summary of this data
+that gives you some insights. You also looked at it more visually and you have got some more insights
+but when you have large amount of data big data the last step is really
+deriving those insights which are not readily apparent either through visualization
+or through simple summary of data. So, how do we then go and look at more sophisticated
+analytics or analysis of data so that these insights come out. And that is where machine learning
+comes and as a part of this course when you see the progress of this course you will notice that
+you will go through all of this so that you are ready to look at data science problems in a
+structured format and then use Python as a tool to solve some of these problems.
+Now, why Python for doing all of this the number one reason is that there are this Python
+libraries which already are geared towards doing many of the things that we talked about
+so that it becomes easy for one to program and very quickly you can get some interesting
+outcomes out of what we are trying to do. So, there are as we talked about in the previous slide
+you need to do data manipulation and pre-processing. There are lots of functions libraries in Python
+where you can do data wrangling manipulation and so on. From a data summary view point there are
+many of these statistical calculations that you want to do are already pre-programmed and you
+have to simply invoke them with your data to be able to show data summary. The next step we talked
+about visualization there are libraries in Python which can be used to do the visualization
+and finally for the more sophisticated analysis that we talked about all kinds of
+machine learning algorithms are already pre coded available as libraries in Python. So,
+again once you understand some bit about these functions and once you get comfortable working
+in Python then applying certain machine learning algorithms for these problems become trivial.
+You simply call these libraries and then run these algorithms.
+At a higher level so in the previous slide we talked about flow process for how I get the data
+in clean and all the way up to insights and then parallelly we said why Python makes it easy for us
+to do all of this. If you go forward a little more and then ask in terms of the other
+advantages of Python which are little more than just very simple data science activities.
+Python provides you several libraries and it is being continuously improved so anytime there is
+any algorithm those are coming into the set of libraries. So, in that sense it is very varied and
+there is also a good user community. So, if there are some issues with new libraries and so on
+those are fixed so that you get robust library to work with and we talk about data and data can
+be of different scales. So, the examples that you will see in this course are data of reasonably
+small size but in real life problems you are going to look at data which is much larger which we
+call as big data. So, Python has an ability to integrate with big data frameworks like Hadoops,
+Park and so on and Python also allows you to do more sophisticated programming, object oriented
+programming and functional programming. Python with all of this sophisticated tools and
+is still reasonably simple language learn it is reasonably fast to prototype and it also
+gives you the ability to work with data which is in your local machine or in a cloud and so on.
+So, these are all things that one looks for when one looks at a programming platform which is
+capable of solving problems in real life. So, these are real problems that you can solve
+these are not only toy examples but real applications that you can build data science applications
+that you can build with Python. And just as another pointer in terms of why we believe that Python
+is something that lot of our students and professionals in India should learn. As you know
+there are tools which are paid tools for machine learning with all of these libraries and so on.
+And there are also open source tools and in India based on a survey most people of course
+prefer open source tools for a variety of reasons cost being one because it is free to use
+but also if it is just free to use but it does not have a robust user community then it is not
+really very useful that is where Python really scores in terms of a robust user community
+which can help with people working in Python. So, it is both open source and there is a
+robust user community both of which are advantage for Python.
+And if you think of other competing languages for machine learning if you look at this chart in
+India about 44 percent of the people who have surveyed said they use Python or they prefer Python.
+And of course, a close second is R. In fact, R was much more preferred a few years back but
+over the last few years in India, Python is starting to become the programming platform of choice.
+So, in that sense it is a good language learnt because the opportunities for jobs and so on
+lot more when you are comfortable with Python as a language. So, with this I will stop this
+brief introduction on why Python for data science. I hope I have given you an idea of the fact that
+while we are going to teach you Python as a programming language please keep in mind that
+each module that we teach in this is actually give towards data science. So, as we teach Python,
+we will make the connections to how you will use some of the things that you are seeing in data
+science and all of this will culminate with these two case studies that will bring all of these ideas
+together in terms of both giving you an idea and an understanding of how the data science problem
+will be solved and also how it will be solved in Python which is a program of choice currently in
+India. So, I hope this short four week course helps you quickly get on to this programming platform
+and then learn data science and then you can enhance your skills with much more detailed
+understanding of both the programming language and data science techniques. Thank you.
