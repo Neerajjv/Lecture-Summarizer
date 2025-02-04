@@ -32,7 +32,7 @@ Lecture-Summarizer/
 ## 🚀 Installation & Setup
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/Lecture-Summarizer.git
+   git clone https://github.com/Neerajjv/Lecture-Summarizer.git
    cd Lecture-Summarizer
 
 	2.	Install dependencies:
