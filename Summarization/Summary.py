@@ -17,7 +17,7 @@ def generate_summarized_pdf(txt_path, output_pdf_path):
     - txt_path (str): Path to the input text file.
     - output_pdf_path (str): Path to save the output PDF.
     """
-    GEMINI_API_KEY = "AIzaSyA57Q2-lk4EIN1kar4HB4ybgASObqVEqOI"
+    GEMINI_API_KEY = "YOUR_API_KEY"
     
     # Function to load data from a text file
     def load_data_from_file(file_path):
