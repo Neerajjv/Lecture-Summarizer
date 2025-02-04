@@ -5,13 +5,13 @@ from Summarization.Summary import generate_summarized_pdf
 import os
 
 # Define parameters
-video_path = "/Users/rafaelzieganpalg/Projects/Lecture_Summarizer/Audio_Transcript/test.mp4"  # Video path
+video_path = "test.mp4"  # Video path
 frame_rate = 5  # 1 frame every 5 seconds
-output_slides_dir = "/Users/rafaelzieganpalg/Projects/Lecture_Summarizer/Audio_Transcript/output"
-output_text_file = "/Users/rafaelzieganpalg/Projects/Lecture_Summarizer/Audio_Transcript/Result/results.txt"  # Text extracted from video
-audio_transcription_file = "/Users/rafaelzieganpalg/Projects/Lecture_Summarizer/Audio_Transcript/Result/audio_transcription.txt"  # Transcribed audio text
-final_output_file = "/Users/rafaelzieganpalg/Projects/Lecture_Summarizer/Audio_Transcript/Result/Final_Combined.txt"  # Merged text file
-summary_pdf_file = "/Users/rafaelzieganpalg/Projects/Lecture_Summarizer/Audio_Transcript/Result/Summary_Report.pdf"  # Summarized PDF file
+output_slides_dir = "/Transcript/output"
+output_text_file = "/Transcript/Result/results.txt"  # Text extracted from video
+audio_transcription_file = "/Transcript/Result/audio_transcription.txt"  # Transcribed audio text
+final_output_file = "/Transcript/Result/Final_Combined.txt"  # Merged text file
+summary_pdf_file = "/Transcript/Result/Summary_Report.pdf"  # Summarized PDF file
 
 # Ensure output directories exist
 os.makedirs(os.path.dirname(output_text_file), exist_ok=True)
