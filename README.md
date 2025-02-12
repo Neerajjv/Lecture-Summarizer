@@ -79,4 +79,4 @@ python main.py --video_path "path_to_lecture_video.mp4"
 Feel free to contribute, report issues, or suggest improvements! 🚀
 
 📧 Contact
-For queries, reach out via jvneeraj1000@gmail.com or create an issue on GitHub.
+For queries, reach out or create an issue on GitHub.
