@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3845cbde-1523-4f96-b300-e652ef933b68" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Results/Final_Combined.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Summary_Report.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/audio_transcription.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/results.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/video_text_results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Summarization/Summary.py" beforeDir="false" afterPath="$PROJECT_DIR$/Summarization/Summary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Video_Processing/OCR_Helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Video_Processing/OCR_Helper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

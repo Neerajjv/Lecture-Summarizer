@@ -18,7 +18,7 @@ def generate_summarized_pdf(txt_path, output_pdf_path):
     - txt_path (str): Path to the input text file.
     - output_pdf_path (str): Path to save the output PDF.
     """
-    GROQ_API_KEY = "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"  # Groq API Key
+    GROQ_API_KEY = "YOUR_API_KEY"  # Groq API Key
 
     # Function to load data from a text file
     def load_data_from_file(file_path):
