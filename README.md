@@ -11,7 +11,7 @@ The **Lecture Summarizer** is an AI-powered tool that extracts **audio** and **v
 - 🎯 **Efficient Text Processing**: Uses **text chunking** and **intelligent summarization** to limit the output to ~3 pages.
 
 ## 📂 Project Structure
-
+```
 Lecture-Summarizer/
 │── Audio_Processing/
 │   │── Convert.py  # Converts lecture videos to audio
@@ -28,7 +28,7 @@ Lecture-Summarizer/
 │── requirements.txt  # Project dependencies
 │── README.md         # Project documentation
 │── main.py           # Main script to run the summarization pipeline
-
+```
 ## 🚀 Installation & Setup
 1. Clone the repository:
    ```sh
