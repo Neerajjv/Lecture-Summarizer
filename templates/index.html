@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Summarization</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --background-light: #f8f9fa;
+            --background-dark: #1a1a1a;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #2d2d2d;
+            --text-light: #ffffff;
+            --text-dark: #2d2d2d;
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition-duration: 0.2s;
+            --heading-color: #343a40;
+            --accent-color: #4f46e5; /* Accent color for highlights */
+        }
+
+        body {
+            background: var(--background-light);
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            transition: background var(--transition-duration) ease, color var(--transition-duration) ease;
+            line-height: 1.6; /* Improve readability */
+        }
+
+        .dark-mode {
+            background: var(--background-dark);
+            color: var(--text-light);
+            --heading-color: #f8f9fa;
+        }
+
+        .container-fluid {
+            padding: 2rem;
+            margin-top: 0.5rem;
+            max-width: 1200px; /* Limit width for larger screens */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            color: var(--heading-color);
+            text-align: center;
+            margin-bottom: 1rem; /* Reduced margin */
+            transition: color var(--transition-duration) ease;
+            font-size: 2.5rem; /* Larger title */
+            font-weight: 600;
+        }
+
+        /* Single Column Layout */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .upload-section, .result-section, .view-section {
+            background: var(--card-bg-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: background var(--transition-duration) ease;
+        }
+
+        .dark-mode .upload-section, .dark-mode .result-section, .dark-mode .view-section {
+            background: var(--card-bg-dark);
+        }
+
+        .upload-section h2, .result-section h2, .view-section h2 {
+            color: var(--heading-color);
+            font-size: 1.75rem; /* Slightly smaller heading */
+            margin-bottom: 1.5rem;
+            transition: color var(--transition-duration) ease;
+        }
+
+        .file-input-container {
+            border: 2px dashed #dee2e6;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: border-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+            cursor: pointer;
+        }
+
+        .file-input-container:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .file-input-container input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-preview {
+            margin-top: 1.5rem;
+            background: rgba(79, 70, 229, 0.05);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .upload-preview i {
+            color: var(--accent-color);
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin-top: 1.5rem;
+        }
+
+        .result-section, .view-section {
+            /* display: none;  Hidden by default */
+        }
+
+        .pdf-viewer-card {
+            margin-top: 1.5rem;
+            background: var(--card-bg-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: background var(--transition-duration) ease;
+        }
+
+        .dark-mode .pdf-viewer-card {
+            background: var(--card-bg-dark);
+        }
+
+        .btn-gradient {
+            background-image: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+            font-weight: 500;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--primary-gradient);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+        #extractedTextSection {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        #extractedText {
+            width: 100%;
+            min-height: 200px;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: var(--border-radius);
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+        }
+
+        .dark-mode #extractedText {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            border-color: #6c757d;
+        }
+
+        /* Styles specifically for loading state */
+        #preloader {
+            position: fixed; /* Important: fixed position covers the whole viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 10000;
+            display: none;
+            justify-content: center; /* Horizontally center items */
+            align-items: center;     /* Vertically center items */
+            flex-direction: column;  /* Stack items vertically */
+            text-align: center;       /* Center-align text content */
+
+        }
+
+
+        #loadingMessage {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Ensure iframe takes up full height of its container */
+        #pdfFrame {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* Style the iframe wrapper to control its size */
+        .pdf-viewer-wrapper {
+            height: 500px; /* Increased iframe height */
+            overflow: hidden;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding: 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .upload-section, .result-section, .view-section {
+                padding: 1.5rem;
+            }
+
+            .file-input-container {
+                padding: 1.5rem;
+            }
+
+            .dark-mode-toggle {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            #loadingContent {
+                padding: 1.5rem;
+            }
+
+            .pdf-viewer-wrapper {
+                height: 400px;
+            }
+        }
+
+        /* Specific Styles for Icons and Text in Upload Area */
+        .file-input-container i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .file-input-container h4 {
+            font-size: 1.25rem;
+            color: var(--heading-color);
+            transition: color var(--transition-duration) ease;
+        }
+
+        .file-input-container p {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        /* Animation for better UX */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        .loading-spinner {
+            animation: spin 1s linear infinite, pulse 1.5s infinite;
+        }
+
+        /* Navigation Tabs Styles */
+        .nav-tabs {
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--heading-color);
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease;
+            padding: 0.75rem 1.25rem;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link:focus {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .nav-link.active {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .dark-mode .nav-link {
+            color: #adb5bd;
+        }
+
+        .dark-mode .nav-link:hover, .dark-mode .nav-link:focus, .dark-mode .nav-link.active {
+            color: var(--accent-color);
+        }
+
+         /* Hidden by default except when active */
+        .tab-pane:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid" id="mainPage">
+        <h1 class="page-title">Lecture Video Summarizer</h1>
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="upload-tab" data-bs-toggle="tab" data-bs-target="#upload" type="button" role="tab" aria-controls="upload" aria-selected="true">Upload Video</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="view-tab" data-bs-toggle="tab" data-bs-target="#view" type="button" role="tab" aria-controls="view" aria-selected="false">View Uploaded Video</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="results-tab" data-bs-toggle="tab" data-bs-target="#results" type="button" role="tab" aria-controls="results" aria-selected="false">Summary Results</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- Upload Section -->
+            <div class="tab-pane fade show active" id="upload" role="tabpanel" aria-labelledby="upload-tab">
+                <div class="upload-section">
+                    <h2>Upload Lecture Video</h2>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="file-input-container">
+                            <div class="file-input-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h4>Drag & Drop or Click to Upload</h4>
+                                <p class="text-muted">Supported formats: MP4, MOV, AVI</p>
+                                <input type="file" name="file" id="fileInput" class="form-control" accept="video/*" required>
+                            </div>
+                        </div>
+                        <div class="upload-preview d-flex align-items-center" id="filePreview" style="display: none;">
+                            <i class="fas fa-file-video me-2"></i>
+                            <span id="fileName"></span>
+                        </div>
+                        <button type="submit" class="btn-gradient w-100 mt-3" id="uploadButton">
+                            <i class="fas fa-play me-2"></i>Upload & Process
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- View Uploaded Video Section -->
+            <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
+                <div class="view-section">
+                    <h2>View Uploaded Video</h2>
+                    <div class="video-container mt-3" id="videoPlayer">
+                        <video controls id="uploadedVideo" class="w-100">
+                            <source id="videoSource" src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <button id="summarizeBtn" class="btn-gradient w-100 mt-3">
+                        <i class="fas fa-magic me-2"></i>Generate Summary
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result Section -->
+            <div class="tab-pane fade" id="results" role="tabpanel" aria-labelledby="results-tab">
+                <div class="result-section" id="resultsContainer">
+                    <h2><i class="fas fa-chart-bar me-2"></i> Summary Results</h2>
+                    <div class="pdf-viewer-card" id="pdfViewer" style="display: none;">
+                        <h4 class="mb-3"><i class="fas fa-file-pdf me-2"></i>Lecture Summary</h4>
+                        <div class="pdf-viewer-wrapper">
+                            <iframe id="pdfFrame" class="w-100" style="border: none;"></iframe>
+                        </div>
+                        <button class="btn-gradient w-100 mt-3" id="downloadPdfBtn">
+                            <i class="fas fa-download me-2"></i>Download PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="preloader">
+        <div id="loadingMessage">Processing Video...</div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+        <i class="fas fa-moon text-white" id="darkModeIcon"></i>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // File Input Handling
+            $('#fileInput').change(function() {
+                const fileName = $(this).val().split('\\').pop();
+                $('#fileName').text(fileName);
+                $('#filePreview').fadeIn();
+            });
+
+            // Dark Mode Toggle
+            $('#darkModeIcon').click(function() {
+                $('body').toggleClass('dark-mode');
+                $(this).toggleClass('fa-moon fa-sun');
+            });
+
+            // Video Upload Handling
+            $('#uploadButton').click(function(e) {
+                e.preventDefault();
+
+                // Switch to the View tab
+                var viewTab = new bootstrap.Tab($('#view-tab')[0]);
+                viewTab.show();
+
+                const file = $('#fileInput')[0].files[0];
+                if (file) {
+                    const videoURL = URL.createObjectURL(file);
+                    $('#uploadedVideo').attr('src', videoURL);
+                    $('#videoSource').attr('src', videoURL);  //Also sets source for video tag
+                    $('#videoPlayer').load(); // Triggers video refresh
+
+                    // Show video and summarize button
+                    $('#videoPlayer').fadeIn();
+                    $('#summarizeBtn').fadeIn();
+                }
+            });
+
+            // Summarize Button Logic
+            $("#summarizeBtn").on("click", function () {
+                $("#preloader").fadeIn(); // Show loading overlay
+                $("#pdfViewer").hide(); // Hide text and PDF until ready
+
+                // Array of loading messages
+                const loadingMessages = [
+                    "Processing Video...",
+                    "Processing Audio...",
+                    "Fetching Results..."
+                ];
+
+                let messageIndex = 0;
+
+                // Function to update the loading message
+                function updateLoadingMessage() {
+                    $("#loadingMessage").text(loadingMessages[messageIndex]);
+                    messageIndex = (messageIndex + 1) % loadingMessages.length;  // Cycle through messages
+                }
+
+                // Initial message update
+                updateLoadingMessage();
+
+                // Set interval to update the message every 3 seconds (adjust as needed)
+                const messageInterval = setInterval(updateLoadingMessage, 3000);
+
+                $.ajax({
+                    url: "/upload",  // Ensure this matches your Flask route
+                    type: "POST",
+                    data: new FormData($("#uploadForm")[0]),
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if (response.success) {
+                            // Start polling to check if processing is complete
+                            checkProcessingStatus();
+                        } else {
+                            alert(response.message);
+                            $("#preloader").fadeOut();
+                            clearInterval(messageInterval); // Clear the message update interval on error
+                        }
+                    },
+                    error: function () {
+                        alert("Error processing the request.");
+                        $("#preloader").fadeOut();
+                        clearInterval(messageInterval); // Clear the message update interval on error
+                    }
+                });
+            });
+
+            let checkInterval;
+            let messageInterval;
+
+            function checkProcessingStatus() {
+                checkInterval = setInterval(function () {
+                    $.get("/check_summary", function (data) {
+                        if (data.success) {
+                            clearInterval(checkInterval);
+                            clearInterval(messageInterval); // Clear the message update interval when done
+
+                            loadSummaryPDF();
+                            $("#preloader").fadeOut();
+
+                             // Switch to the Results Tab after processing
+
+                            var resultsTab = new bootstrap.Tab($('#results-tab')[0]);
+                            resultsTab.show();
+                        }
+                    }).fail(function() {
+                        // Handle error during status check.  Important for robustness
+                        console.error("Error checking summary status.  Retrying...");
+                    });
+                }, 5000); // Poll every 5 seconds
+            }
+
+            function loadSummaryPDF() {
+                let pdfUrl = "/view_summary";  //Match the PDF serving route
+
+                $("#pdfFrame").attr("src", pdfUrl);
+                $("#pdfViewer").fadeIn();
+            }
+
+            // Download PDF Logic
+            $("#downloadPdfBtn").on("click", function () {
+                window.location.href = "/download"; // Match the PDF download route
+            });
+        });
+
+    </script>
+</body>
+</html>

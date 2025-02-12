@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3845cbde-1523-4f96-b300-e652ef933b68" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Results/Final_Combined.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/Summary_Report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/audio_transcription.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/video_text_results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Summarization/Summary.py" beforeDir="false" afterPath="$PROJECT_DIR$/Summarization/Summary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Video_Processing/OCR_Helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Video_Processing/OCR_Helper.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Main_keyframes.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/OCR.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2pvlDnWxBTDQWIU0BHbdXDXekC2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/clg/SPRINGBOARD&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3845cbde-1523-4f96-b300-e652ef933b68" name="Changes" comment="" />
+      <created>1733654312593</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733654312593</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,7 +1,7 @@
 import os
 import cv2
 import pytesseract
-
+pytesseract.pytesseract.tesseract_cmd = r"D:\Softwares\tessaract\tesseract.exe"
 def extract_text_from_images(input_dir, output_file):
     """
     Processes all images in the specified directory, extracts text using OCR,
