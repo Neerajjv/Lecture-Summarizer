@@ -3,6 +3,9 @@
 ## Overview
 The **Lecture Summarizer** is an AI-powered tool that extracts **audio** and **visual** content from lecture videos, transcribes spoken words, performs **OCR on board content**, and combines the extracted text into a **structured summary**. The summarized content is then formatted into a **well-organized PDF** using an **LLM-based approach**.
 
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/0129a9a7-139f-43b6-91f1-5dd667d5311d" />
+
+
 ## 🔥 Features
 - 🎤 **Speech-to-Text Transcription**: Extracts and transcribes spoken content using Whisper ASR.
 - 🖼️ **OCR for Board Content**: Extracts text from slides, whiteboards, and handwritten notes.
@@ -25,9 +28,12 @@ Lecture-Summarizer/
 │── Summarization/
 │   │── Summary.py  # Generates structured summaries using LLM
 │
+│── templates/
+│   │── index.html
+│
 │── requirements.txt  # Project dependencies
 │── README.md         # Project documentation
-│── main.py           # Main script to run the summarization pipeline
+│── APP.py           # Main script to run the summarization pipeline
 ```
 ## 🚀 Installation & Setup
 1. Clone the repository:
@@ -41,16 +47,13 @@ Lecture-Summarizer/
 pip install -r requirements.txt
 ```
 
-3. Set up API keys:
-Create a .env file and add:
-```sh
-GEMINI_API_KEY=your_google_gemini_api_key
+3. Run the Lecture Summarizer:
+```
+python APP.py
 ```
 
-4. Run the Lecture Summarizer:
-```
-python main.py --video_path "path_to_lecture_video.mp4"
-```
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/915d5bcd-4823-4ffd-bdcc-6c87ebd3b133" />
+
 
 ## 🛠️ How It Works
 
