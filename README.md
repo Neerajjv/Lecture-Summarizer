@@ -33,47 +33,47 @@ Lecture-Summarizer/
 1. Clone the repository:
    ```sh
    git clone https://github.com/Neerajjv/Lecture-Summarizer.git
-   cd Lecture-Summarizer
+   cd Lecture-Summarizer	
+	```
 
-	2.	Install dependencies:
-
+2. Install dependencies:
+```sh
 pip install -r requirements.txt
+```
 
-
-	3.	Set up API keys:
-	•	Create a .env file and add:
-
+3. Set up API keys:
+Create a .env file and add:
+```sh
 GEMINI_API_KEY=your_google_gemini_api_key
+```
 
-
-	4.	Run the Lecture Summarizer:
-
+4. Run the Lecture Summarizer:
+```
 python main.py --video_path "path_to_lecture_video.mp4"
-
-
+```
 
 🛠️ How It Works
-	1.	🎥 Extracts Audio & Visual Content:
+1. 🎥 Extracts Audio & Visual Content:
 	•	Converts lecture videos into audio.
 	•	Extracts keyframes from the video.
-	2.	📝 Text Extraction:
+2. 📝 Text Extraction:
 	•	Uses Whisper ASR to transcribe spoken content.
 	•	Runs OCR on keyframes to extract text from slides/boards.
-	3.	📚 Summarization:
+3. 📚 Summarization:
 	•	Merges both texts.
 	•	Summarizes it using LLM (Gemini Pro).
 	•	Ensures concise notes (~3 pages max).
-	4.	📄 PDF Generation:
+4. 📄 PDF Generation:
 	•	Formats the summary into a structured PDF.
 
 🏆 Results
-	•	Organized lecture notes with headings, bullet points, and key takeaways.
-	•	PDF output for easy sharing and reference.
+	•Organized lecture notes with headings, bullet points, and key takeaways.
+	•PDF output for easy sharing and reference.
 
-📝 Future Improvements
-	•	🎭 Speaker Identification for multi-speaker transcription.
-	•	📊 Diagram & Chart Recognition for enhanced visual content extraction.
-	•	🧠 More LLMs Support like GPT-4 and Claude for better summaries.
+📝 Future Improvements:
+	•🎭 Speaker Identification for multi-speaker transcription.
+	•📊 Diagram & Chart Recognition for enhanced visual content extraction.
+	•🧠 More LLMs Support like GPT-4 and Claude for better summaries.
 
 👨‍💻 Contributions & Feedback
 Feel free to contribute, report issues, or suggest improvements! 🚀
